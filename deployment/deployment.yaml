@@ -1,0 +1,23 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dchris-api
+  labels:
+    app: dchris-api
+spec:
+  selector:
+    matchLabels:
+      app: dchris-api
+  template:
+    metadata:
+      labels:
+        app: dchris-api
+    spec:
+      containers:
+      - name: dchris-api
+        image: localhost/dchris-api:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8084
+        

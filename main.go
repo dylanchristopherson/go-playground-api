@@ -12,10 +12,17 @@ func main() {
 
 	router := gin.Default()
 	router.GET("/test", test)
+	router.GET("/ping", pong)
 
-	router.Run("localhost:8080")
+	router.Run("localhost:8084")
 }
 
 func test(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, "Hello")
+}
+
+func pong(c *gin.Context) {
+	c.JSON(200, gin.H{
+		"message": "pong",
+	})
 }
